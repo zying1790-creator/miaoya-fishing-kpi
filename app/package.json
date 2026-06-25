@@ -1,0 +1,61 @@
+{
+  "name": "miaoya-fishing-kpi",
+  "version": "1.0.0",
+  "description": "喵呀摸鱼KPI：透明悬浮桌面独立 App",
+  "main": "main.js",
+  "author": "ying zhao",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "build:mac": "electron-builder --mac dmg zip",
+    "build:win": "electron-builder --win nsis portable",
+    "build:all": "electron-builder -mw",
+    "build:mac:dmg": "electron-builder --mac dmg",
+    "build:mac:appzip": "electron-builder --mac zip"
+  },
+  "devDependencies": {
+    "electron": "^31.7.7",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.ying.miaoya-fishing-kpi.desktop",
+    "productName": "喵呀摸鱼KPI",
+    "files": [
+      "index.html",
+      "main.js",
+      "preload.js",
+      "assets/**/*"
+    ],
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "category": "public.app-category.games",
+      "icon": "assets/icon.icns"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "icon": "assets/icon.png"
+    },
+    "artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
+    "dmg": {
+      "title": "喵呀摸鱼KPI",
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    }
+  }
+}

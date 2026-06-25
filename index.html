@@ -22,7 +22,7 @@
     }
 
     .card {
-      width: min(520px, calc(100vw - 36px));
+      width: min(680px, calc(100vw - 36px));
       padding: 36px 28px 32px;
       border-radius: 28px;
       background: rgba(255, 255, 255, .92);
@@ -57,11 +57,18 @@
       font-weight: 600;
     }
 
-    .download {
-      display: inline-block;
+    .downloads {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
       margin-top: 22px;
+    }
+
+    .download {
+      display: grid;
+      gap: 6px;
       padding: 15px 28px;
-      border-radius: 999px;
+      border-radius: 18px;
       background: #2f86d4;
       color: white;
       text-decoration: none;
@@ -80,6 +87,12 @@
       box-shadow: 0 3px 0 #1f629d;
     }
 
+    .download small {
+      color: rgba(255, 255, 255, .82);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
     .tip {
       margin-top: 20px;
       padding: 12px 14px;
@@ -96,6 +109,12 @@
       font-size: 12px;
       color: #93a0b5;
     }
+
+    @media (max-width: 560px) {
+      .downloads {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
@@ -105,18 +124,25 @@
     <h1>喵呀摸鱼KPI</h1>
 
     <p>一个可爱的桌面钓鱼小工具。</p>
-    <p>适用于 macOS，下载后双击 DMG 安装。</p>
+    <p>选择你的系统版本下载安装。</p>
 
-<a class="download" href="downloads/喵呀摸鱼KPI-1.0.0-mac-arm64.dmg" download>
-  下载 Mac 安装包
-</a>
+    <div class="downloads">
+      <a class="download" href="downloads/喵呀摸鱼KPI-1.0.0-mac-arm64.dmg" download>
+        macOS 版本
+        <small>Apple Silicon · DMG</small>
+      </a>
+      <a class="download" href="downloads/MiaoYa-Fishing-KPI-1.0.0-win-x64-Setup.exe" download>
+        Windows 版本
+        <small>Windows 10/11 · x64</small>
+      </a>
+    </div>
 
     <div class="tip">
-      如果首次打开提示“无法验证开发者”，请在访达中右键 App，选择“打开”。
+      macOS 首次打开如提示“无法验证开发者”，请在访达中右键 App 后选择“打开”。Windows 如出现 SmartScreen 提示，请确认来源后选择继续运行。
     </div>
 
     <div class="version">
-      v1.5 · 修复安装包 · 海洋图鉴 200 种
+      v1.5 · macOS / Windows · 海洋图鉴 200 种
     </div>
   </main>
 </body>
